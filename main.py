@@ -7,7 +7,7 @@ ox.settings.use_cache = True
 # Map around Loughborough
 # download street network data from OSM and construct a MultiDiGraph model
 
-network_type = "drive"
+network_type = "drive_service"
 G = ox.graph.graph_from_point(
     (52.7723859, -1.2077985), dist=3500, network_type=network_type
 )
@@ -51,9 +51,8 @@ ox.io.save_graphml(G, filepath=f"./graph_models/{network_type}/graph.graphml")
 print(f"Number of nodes: {G.number_of_nodes()}")
 print(f"Number of edges: {G.number_of_edges()}")
 
-for node in G.nodes(data=True):
-    print(f"Node: {node}")
-    print()
+# for node in G.nodes(data=True):
+#     print(f"Node: {node}")
 
-# for edge in G.edges(data=True):
-#     print(f"Edge: {edge}")
+for edge in G.edges(data=True):
+    print(f"Edge: {edge}")
